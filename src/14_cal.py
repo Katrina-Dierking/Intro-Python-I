@@ -30,3 +30,24 @@ it should use today’s date to get the month and year.
 import sys
 import calendar
 from datetime import datetime
+#what we render will depend on how many arguments we specify
+# 0 is the name of the file running. A list will never be empty
+
+l = len(sys.argv) 
+if l == 1:
+  month = datetime.now().month #current date pulling in current month
+  year = datetime.now().year
+
+if l == 2:
+  month = int(sys.argv[1])
+  year = datetime.now().year
+
+if l == 3:
+  month = int(sys.argv[1])
+  year = int(sys.argv[2])
+
+else:
+  print("please add your birthday")
+
+cal = calendar.TextCalendar()
+cal.prmonth(year, month) #optional params w = width, and others -- optional because they have default values
